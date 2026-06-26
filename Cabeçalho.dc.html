@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    .rev-logo{ font-family:'EB Garamond',serif; font-size:20px; letter-spacing:0.34em; color:rgb(236,231,222); text-decoration:none; transition:opacity .3s ease; }
+    .rev-logo:hover{ opacity:0.78; }
+    .rev-nav-link{ position:relative; font-family:'EB Garamond',serif; font-size:18px; color:rgba(236,231,222,0.82); text-decoration:none; white-space:nowrap; padding-bottom:5px; transition:color .3s ease; }
+    .rev-nav-link:hover, .rev-nav-link.active{ color:rgb(250,250,248); }
+    .rev-nav-link::after{ content:''; position:absolute; left:0; bottom:0; height:1.5px; width:0; background:rgb(236,231,222); transition:width .35s cubic-bezier(.22,.61,.36,1); }
+    .rev-nav-link:hover::after, .rev-nav-link.active::after{ width:100%; }
+    .rev-cta{ display:flex; align-items:center; justify-content:center; white-space:nowrap; height:51px; padding:0 22px; background:rgb(30,23,18); border-radius:15px; font-family:'EB Garamond',serif; font-size:18px; color:rgb(250,250,248); text-decoration:none; transition:transform .3s cubic-bezier(.22,.61,.36,1), background-color .3s ease, box-shadow .3s ease; }
+    .rev-cta:hover{ transform:translateY(-1px) scale(1.04); background:rgb(162,132,94); box-shadow:0 12px 26px -12px rgba(30,23,18,0.6); }
+  </style>
+</helmet>
+<header data-revita-nav data-over-hero="{{ overHeroFlag }}" style="position:fixed; top:0; left:0; right:0; z-index:100; height:90px; background:{{ navBg }}; border-bottom:0.5px solid transparent; transition:transform .45s cubic-bezier(.22,.61,.36,1), background-color .35s ease, backdrop-filter .35s ease, border-color .35s ease; box-sizing:border-box;">
+  <div style="max-width:1440px; margin:0 auto; height:100%; display:flex; align-items:center; justify-content:space-between; padding:0 40px; box-sizing:border-box;">
+    <a href="Home.dc.html" class="rev-logo">REVITÁ</a>
+    <nav style="display:flex; align-items:center; gap:32px;">
+      <sc-for list="{{ items }}" as="item" hint-placeholder-count="6">
+        <a href="{{ item.href }}" class="{{ item.cls }}">{{ item.label }}</a>
+      </sc-for>
+    </nav>
+    <a href="Consulta-Online.dc.html" class="rev-cta">Agendar Consulta</a>
+  </div>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:90},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;inicio&quot;,&quot;tratamentos&quot;,&quot;sobre&quot;,&quot;clinica&quot;,&quot;consulta&quot;,&quot;contato&quot;],&quot;default&quot;:&quot;inicio&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;overHero&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const active = this.props.active ?? "inicio";
+    const overHero = this.props.overHero ?? false;
+    const defs = [
+      { key: "inicio", label: "Início", href: "Home.dc.html" },
+      { key: "tratamentos", label: "Tratamentos", href: "Tratamentos.dc.html" },
+      { key: "sobre", label: "Sobre", href: "Sobre.dc.html" },
+      { key: "clinica", label: "A Clínica", href: "A-Clinica.dc.html" },
+      { key: "consulta", label: "Consulta Online", href: "Consulta-Online.dc.html" },
+      { key: "contato", label: "Contato", href: "Contato.dc.html" },
+    ];
+    const items = defs.map((d) => ({
+      label: d.label,
+      href: d.href,
+      cls: d.key === active ? "rev-nav-link active" : "rev-nav-link",
+    }));
+    return {
+      items,
+      overHeroFlag: overHero ? "1" : "0",
+      navBg: overHero ? "transparent" : "rgb(122,108,94)",
+    };
+  }
+}
+</script>
+</body>
+</html>
