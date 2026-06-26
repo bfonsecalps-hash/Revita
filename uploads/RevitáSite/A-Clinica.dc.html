@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600&family=Noto+Sans:wght@400;500&family=EB+Garamond:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *{ box-sizing:border-box; }
+    ::selection{ background:rgba(162,132,94,0.3); }
+  </style>
+  <script src="./revita-fx.js"></script>
+</helmet>
+<div data-screen-label="A Clínica" style="width:1440px; margin:0 auto; background:rgb(236,231,222); font-family:'Bodoni Moda', Georgia, serif; color:rgb(43,35,22); overflow:hidden;">
+
+  <dc-import name="Cabeçalho" active="clinica" over-hero="{{ true }}" hint-size="100%,90px"></dc-import>
+
+  <!-- HERO -->
+  <section style="position:relative; height:560px; overflow:hidden; background:rgb(43,35,22);">
+    <div data-parallax="0.2" style="position:absolute; inset:0; background-image:repeating-linear-gradient(125deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 16px); transform:scale(1.15);"></div>
+    <div style="position:absolute; inset:0; background:rgba(43,35,22,0.45);"></div>
+    <div style="position:relative; height:100%; display:flex; flex-direction:column; justify-content:center; padding:0 72px;">
+      <h1 data-reveal="fade-left" style="margin:0; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:72px; line-height:1; color:rgb(255,255,255);">A nossa clínica</h1>
+      <p data-reveal="fade-left" data-reveal-delay="160" style="margin:24px 0 0; max-width:600px; font-family:'Bodoni Moda', serif; font-size:24px; line-height:1.35; color:rgba(255,255,255,0.9);">Um espaço pensado para o seu conforto e bem-estar.</p>
+    </div>
+  </section>
+
+  <!-- O NOSSO ESPAÇO -->
+  <section style="background:rgb(228,221,211); padding:96px 72px 100px;">
+    <span data-reveal="fade-up" style="display:inline-block; font-family:'Bodoni Moda', serif; font-size:14px; letter-spacing:0.3em; text-transform:uppercase; color:rgb(30,23,18);">O nosso espaço</span>
+    <h2 data-reveal="fade-left" data-reveal-delay="80" style="margin:16px 0 48px; max-width:640px; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:40px; line-height:1.12; color:rgb(43,35,22);">Conforto e modernidade a serviço da sua saúde.</h2>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:280px 280px; gap:20px;">
+      <div data-reveal="scale-up" style="grid-column:span 2; position:relative; background:rgb(30,23,18); border-radius:6px; overflow:hidden;">
+        <div style="position:absolute; inset:0; background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 14px);"></div>
+        <div style="position:absolute; left:24px; bottom:20px; font-family:'Noto Sans', sans-serif; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(236,231,222,0.45);">recepção</div>
+      </div>
+      <div data-reveal="scale-up" data-reveal-delay="120" style="position:relative; background:rgb(122,108,94); border-radius:6px; overflow:hidden;">
+        <div style="position:absolute; inset:0; background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 14px);"></div>
+        <div style="position:absolute; left:24px; bottom:20px; font-family:'Noto Sans', sans-serif; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(236,231,222,0.6);">consultório</div>
+      </div>
+      <div data-reveal="scale-up" data-reveal-delay="240" style="position:relative; background:rgb(122,108,94); border-radius:6px; overflow:hidden;">
+        <div style="position:absolute; inset:0; background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 14px);"></div>
+        <div style="position:absolute; left:24px; bottom:20px; font-family:'Noto Sans', sans-serif; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(236,231,222,0.6);">sala de espera</div>
+      </div>
+      <div data-reveal="scale-up" data-reveal-delay="360" style="grid-column:span 2; position:relative; background:rgb(30,23,18); border-radius:6px; overflow:hidden;">
+        <div style="position:absolute; inset:0; background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 14px);"></div>
+        <div style="position:absolute; left:24px; bottom:20px; font-family:'Noto Sans', sans-serif; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(236,231,222,0.45);">detalhe — ambiente</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section style="position:relative; background:rgb(30,23,18); overflow:hidden; padding:96px 72px 110px; text-align:center;">
+    <div style="position:absolute; inset:0; background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 15px);"></div>
+    <div data-reveal="fade-up" style="position:relative;">
+      <span style="font-family:'Bodoni Moda', serif; font-size:14px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(236,231,222,0.6);">Conheça a Revitá</span>
+      <h2 style="margin:16px 0 44px; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:40px; line-height:1.1; color:rgb(255,255,255);">Veja como é estar aqui.</h2>
+      <div style="position:relative; max-width:890px; height:412px; margin:0 auto; background:rgb(43,35,22); border-radius:8px; overflow:hidden;">
+        <div style="position:absolute; inset:0; background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 16px);"></div>
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:92px; height:92px; border-radius:50%; border:1px solid rgba(236,231,222,0.7); display:flex; align-items:center; justify-content:center; background:rgba(30,23,18,0.35);">
+          <div style="width:0; height:0; border-style:solid; border-width:14px 0 14px 24px; border-color:transparent transparent transparent rgb(236,231,222); margin-left:6px;"></div>
+        </div>
+        <div style="position:absolute; left:50%; bottom:24px; transform:translateX(-50%); font-family:'Noto Sans', sans-serif; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(236,231,222,0.4);">vídeo institucional</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO CHEGAR -->
+  <section style="background:rgb(228,221,211); display:grid; grid-template-columns:1fr 1fr; min-height:560px;">
+    <div data-reveal="fade-right" style="display:flex; flex-direction:column; justify-content:center; padding:90px 72px;">
+      <span style="font-family:'Bodoni Moda', serif; font-size:14px; letter-spacing:0.26em; text-transform:uppercase; color:rgb(122,108,94);">Estamos em Brasília – DF</span>
+      <h2 style="margin:18px 0 0; max-width:460px; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:38px; line-height:1.15; color:rgb(43,35,22);">Localizada no coração da Asa Sul.</h2>
+      <p style="margin:26px 0 0; max-width:460px; font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.6; color:rgb(43,35,22); opacity:0.85;">A Revitá foi projetada para que cada visita seja uma experiência tranquila, acolhedora e eficiente.</p>
+      <p style="margin:26px 0 0; font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.7; color:rgb(43,35,22);">SRTV Sul, Quadra 701, Bloco K, Sala 523<br>Edifício Embassy Tower — Asa Sul<br>Brasília – DF, 70340-908</p>
+      <div style="margin-top:36px;">
+        <dc-import name="Botão" variant="outlineDark" label="Abrir no Google Maps" href="https://maps.google.com" hint-size="240px,52px"></dc-import>
+      </div>
+    </div>
+    <div data-reveal="fade-left" data-reveal-delay="120" style="position:relative; background:rgb(30,23,18); overflow:hidden; min-height:480px;">
+      <div style="position:absolute; inset:0; background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 14px);"></div>
+      <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-family:'Noto Sans', sans-serif; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(236,231,222,0.45);">mapa — Google Maps</div>
+    </div>
+  </section>
+
+  <dc-import name="Rodapé" hint-size="100%,300px"></dc-import>
+
+</div>
+</x-dc>
+</body>
+</html>
