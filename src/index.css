@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Noto+Sans:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-background-dark:      rgb(30 23 18);
+  --color-background-primary:   rgb(236 231 222);
+  --color-background-secondary: rgb(228 221 211);
+  --color-brown:                rgb(162 132 94);
+  --color-text-primary:         rgb(43 35 22);
+  --color-text-secondary:       rgb(122 108 94);
+  --color-text-inverse:         rgb(250 250 248);
+  --color-card-dark:            rgb(38 22 6);
+
+  --font-sans:     "Noto Sans", sans-serif;
+  --font-serif:    "Bodoni Moda", Georgia, serif;
+  --font-garamond: "EB Garamond", Georgia, serif;
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  ::selection { background: rgba(162, 132, 94, 0.3); }
+  body { @apply bg-background-primary text-text-primary font-serif; }
+}
