@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600&family=Noto+Sans:wght@400;500&family=EB+Garamond:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *{ box-sizing:border-box; }
+    ::selection{ background:rgba(162,132,94,0.3); }
+    .revita-input{ width:100%; height:52px; padding:0 18px; background:rgb(236,231,222); border:1px solid rgba(43,35,22,0.25); border-radius:8px; font-family:'Bodoni Moda', serif; font-size:16px; color:rgb(43,35,22); outline:none; transition:border-color .2s ease; }
+    .revita-input:focus{ border-color:rgb(30,23,18); box-shadow:0 0 0 4px rgba(162,132,94,0.16); }
+    textarea.revita-input{ height:120px; padding:14px 18px; resize:vertical; }
+    select.revita-input{ appearance:none; cursor:pointer; }
+    .revita-input::placeholder{ color:rgba(43,35,22,0.45); }
+  </style>
+  <script src="./revita-fx.js"></script>
+</helmet>
+<div data-screen-label="Contato" style="width:1440px; margin:0 auto; background:rgb(236,231,222); font-family:'Bodoni Moda', Georgia, serif; color:rgb(43,35,22); overflow:hidden;">
+
+  <dc-import name="Cabeçalho" active="contato" hint-size="100%,90px"></dc-import>
+
+  <!-- INTRO -->
+  <section style="background:rgb(236,231,222); padding:150px 72px 56px;">
+    <span data-reveal="fade-up" style="display:inline-block; font-family:'Bodoni Moda', serif; font-size:14px; letter-spacing:0.3em; text-transform:uppercase; color:rgb(122,108,94);">Fale conosco</span>
+    <h1 data-reveal="fade-left" data-reveal-delay="80" style="margin:16px 0 0; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:56px; line-height:1.05; color:rgb(43,35,22);">Tire suas dúvidas.</h1>
+    <p data-reveal="fade-up" data-reveal-delay="200" style="margin:18px 0 0; font-family:'Bodoni Moda', serif; font-size:22px; line-height:1.4; color:rgb(43,35,22); opacity:0.82;">Estamos prontos para te atender.</p>
+  </section>
+
+  <!-- FORM + CONTATO -->
+  <section style="background:rgb(236,231,222); display:grid; grid-template-columns:1.4fr 1fr; gap:56px; padding:20px 72px 110px; align-items:start;">
+    <form data-reveal="fade-up" onSubmit="{{ onSubmit }}" style="display:flex; flex-direction:column; gap:22px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <label style="font-family:'Bodoni Moda', serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgb(122,108,94);">Nome</label>
+          <input class="revita-input" type="text" placeholder="Seu nome">
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <label style="font-family:'Bodoni Moda', serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgb(122,108,94);">Sobrenome</label>
+          <input class="revita-input" type="text" placeholder="Seu sobrenome">
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <label style="font-family:'Bodoni Moda', serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgb(122,108,94);">E-mail</label>
+        <input class="revita-input" type="email" placeholder="seu@email.com">
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <label style="font-family:'Bodoni Moda', serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgb(122,108,94);">Telefone / WhatsApp</label>
+        <input class="revita-input" type="tel" placeholder="(61) 00000-0000">
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <label style="font-family:'Bodoni Moda', serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgb(122,108,94);">Tratamento de interesse</label>
+        <select class="revita-input">
+          <option>Selecione um tratamento</option>
+          <option>Alinhador Invisalign</option>
+          <option>Implante Dentário</option>
+          <option>Ortodontia Infantil</option>
+          <option>Reabilitação Oral</option>
+          <option>Outro</option>
+        </select>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <label style="font-family:'Bodoni Moda', serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgb(122,108,94);">Mensagem</label>
+        <textarea class="revita-input" placeholder="Descreva brevemente o que deseja tratar"></textarea>
+      </div>
+      <button type="submit" style="align-self:flex-start; margin-top:6px; display:inline-flex; align-items:center; justify-content:center; height:54px; padding:0 38px; background:rgb(30,23,18); color:rgb(250,250,248); border:none; border-radius:15px; font-family:'Bodoni Moda', serif; font-weight:500; font-size:18px; letter-spacing:0.01em; cursor:pointer; transition:background-color .25s ease;" style-hover="{{ submitHover }}">{{ submitLabel }}</button>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:4px 0 0; font-family:'Bodoni Moda', serif; font-size:16px; color:rgb(122,108,94);">✦ Mensagem enviada! Entraremos em contato em breve.</p>
+      </sc-if>
+    </form>
+
+    <aside data-reveal="fade-left" data-reveal-delay="140" style="background:rgb(43,35,22); border-radius:12px; padding:48px 44px; color:rgb(236,231,222); position:relative; overflow:hidden;">
+      <div style="position:absolute; inset:0; background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 16px);"></div>
+      <div style="position:relative;">
+        <span style="font-family:'Bodoni Moda', serif; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(236,231,222,0.6);">Contato direto</span>
+        <p style="margin:18px 0 36px; font-family:'Bodoni Moda', serif; font-size:19px; line-height:1.55; color:rgb(236,231,222);">Preencha o formulário e entraremos em contato em breve.</p>
+        <div style="display:flex; flex-direction:column; gap:26px;">
+          <div>
+            <div style="font-family:'Bodoni Moda', serif; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(236,231,222,0.55); margin-bottom:6px;">E-mail</div>
+            <div style="font-family:'Bodoni Moda', serif; font-size:18px; color:rgb(236,231,222);">revitaclinica.odonto@gmail.com</div>
+          </div>
+          <div>
+            <div style="font-family:'Bodoni Moda', serif; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(236,231,222,0.55); margin-bottom:6px;">Telefone</div>
+            <div style="font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.6; color:rgb(236,231,222);">(61) 3967-7350<br>(61) 99836-1105</div>
+          </div>
+          <div>
+            <div style="font-family:'Bodoni Moda', serif; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(236,231,222,0.55); margin-bottom:6px;">Instagram</div>
+            <div style="font-family:'Bodoni Moda', serif; font-size:18px; color:rgb(236,231,222);">@revita.odonto</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <dc-import name="Rodapé" hint-size="100%,300px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return {
+      sent: this.state.sent,
+      submitLabel: this.state.sent ? "Enviado ✦" : "Enviar Mensagem",
+      submitHover: { backgroundColor: "rgb(43,35,22)" },
+      onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>
