@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600&family=Noto+Sans:wght@400;500&family=EB+Garamond:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *{ box-sizing:border-box; }
+    ::selection{ background:rgba(162,132,94,0.3); }
+  </style>
+  <script src="./revita-fx.js"></script>
+</helmet>
+<div data-screen-label="Sobre" style="width:1440px; margin:0 auto; background:rgb(236,231,222); font-family:'Bodoni Moda', Georgia, serif; color:rgb(43,35,22); overflow:hidden;">
+
+  <dc-import name="Cabeçalho" active="sobre" hint-size="100%,90px"></dc-import>
+
+  <!-- QUEM SOMOS -->
+  <section style="display:grid; grid-template-columns:1fr 1fr; min-height:760px; background:rgb(228,221,211);">
+    <div data-reveal="fade-right" style="position:relative; background:rgb(30,23,18); overflow:hidden; min-height:600px;">
+      <div style="position:absolute; inset:0; background-image:repeating-linear-gradient(48deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 17px);"></div>
+      <div style="position:absolute; left:40px; bottom:28px; font-family:'Noto Sans', sans-serif; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(236,231,222,0.42);">retrato — Dra. Sarah Mendes</div>
+    </div>
+    <div data-reveal="fade-left" data-reveal-delay="120" style="display:flex; flex-direction:column; justify-content:center; padding:90px 84px;">
+      <span style="font-family:'Bodoni Moda', serif; font-size:14px; letter-spacing:0.26em; text-transform:uppercase; color:rgb(122,108,94);">Quem somos</span>
+      <p style="margin:18px 0 0; font-family:'EB Garamond', serif; font-style:italic; font-size:18px; color:rgb(122,108,94);">Cirurgiã-Dentista · Especialista em Ortodontia</p>
+      <h1 style="margin:14px 0 0; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:48px; line-height:1.1; color:rgb(43,35,22);">Dra. Sarah Mendes</h1>
+      <p style="margin:30px 0 0; max-width:520px; font-family:'Bodoni Moda', serif; font-size:19px; line-height:1.6; color:rgb(43,35,22); opacity:0.85;">Formada pela Universidade Paulista de Brasília há 6 anos, a Dra. Sarah Mendes encontrou na ortodontia um caminho que vai além da estética — é sobre restabelecer função, confiança e bem-estar. Cada plano de tratamento nasce de uma escuta atenta e de um cuidado verdadeiramente individual.</p>
+      <div style="margin-top:40px;">
+        <dc-import name="Botão" variant="primary" size="lg" label="Agendar consulta" href="Consulta-Online.dc.html" hint-size="240px,58px"></dc-import>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSSA FILOSOFIA -->
+  <section style="background:rgb(236,231,222); padding:120px 180px; text-align:center;">
+    <span data-reveal="fade-up" style="display:inline-block; font-family:'Bodoni Moda', serif; font-size:14px; letter-spacing:0.3em; text-transform:uppercase; color:rgb(122,108,94);">Nossa filosofia</span>
+    <blockquote data-reveal="fade-up" data-reveal-delay="120" style="margin:28px 0 0; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:40px; line-height:1.22; color:rgb(43,35,22);">"Quando escolhemos trabalhar com propósito, cada atendimento deixa de ser apenas um procedimento."</blockquote>
+    <p data-reveal="fade-up" data-reveal-delay="240" style="margin:40px auto 0; max-width:880px; font-family:'Bodoni Moda', serif; font-size:19px; line-height:1.65; color:rgb(43,35,22); opacity:0.82;">Na Revitá, acreditamos que amar o que fazemos reflete diretamente na experiência que entregamos. É isso que nos move todos os dias: oferecer uma odontologia responsável, humana e comprometida com resultados que realmente fazem diferença. Gratidão a cada paciente que confia em nosso trabalho.</p>
+  </section>
+
+  <!-- NOSSOS VALORES -->
+  <section style="background:rgb(228,221,211); padding:100px 72px 120px; text-align:center;">
+    <span data-reveal="fade-up" style="display:inline-block; font-family:'Bodoni Moda', serif; font-size:14px; letter-spacing:0.3em; text-transform:uppercase; color:rgb(122,108,94);">Nossos valores</span>
+    <h2 data-reveal="fade-up" data-reveal-delay="80" style="margin:16px 0 56px; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:48px; line-height:1.1; color:rgb(43,35,22);">O que nos guia</h2>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; text-align:left;">
+      <div data-reveal="fade-up" data-tilt="4" data-tilt-lift="8" style="background:rgb(43,35,22); border-radius:10px; padding:48px 40px; min-height:420px; display:flex; flex-direction:column;">
+        <div style="width:54px; height:54px; border-radius:50%; border:1px solid rgba(236,231,222,0.5); display:flex; align-items:center; justify-content:center; font-family:'EB Garamond', serif; font-size:20px; color:rgb(236,231,222);">01</div>
+        <h3 style="margin:auto 0 14px; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:30px; line-height:1.15; color:rgb(250,250,248);">Acolhimento</h3>
+        <p style="margin:0; font-family:'Bodoni Moda', serif; font-size:17px; line-height:1.55; color:rgba(236,231,222,0.78);">Escuta genuína e tempo dedicado a cada paciente, do primeiro contato ao pós-tratamento.</p>
+      </div>
+      <div data-reveal="fade-up" data-reveal-delay="130" data-tilt="4" data-tilt-lift="8" style="background:rgb(122,108,94); border-radius:10px; padding:48px 40px; min-height:420px; display:flex; flex-direction:column;">
+        <div style="width:54px; height:54px; border-radius:50%; border:1px solid rgba(236,231,222,0.6); display:flex; align-items:center; justify-content:center; font-family:'EB Garamond', serif; font-size:20px; color:rgb(236,231,222);">02</div>
+        <h3 style="margin:auto 0 14px; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:30px; line-height:1.15; color:rgb(250,250,248);">Preço Justo</h3>
+        <p style="margin:0; font-family:'Bodoni Moda', serif; font-size:17px; line-height:1.55; color:rgba(236,231,222,0.85);">Transparência total e condições que cabem no seu planejamento, sem surpresas no caminho.</p>
+      </div>
+      <div data-reveal="fade-up" data-reveal-delay="260" data-tilt="4" data-tilt-lift="8" style="background:rgb(38,22,6); border-radius:10px; padding:48px 40px; min-height:420px; display:flex; flex-direction:column;">
+        <div style="width:54px; height:54px; border-radius:50%; border:1px solid rgba(236,231,222,0.5); display:flex; align-items:center; justify-content:center; font-family:'EB Garamond', serif; font-size:20px; color:rgb(236,231,222);">03</div>
+        <h3 style="margin:auto 0 14px; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:30px; line-height:1.15; color:rgb(250,250,248);">Excelência</h3>
+        <p style="margin:0; font-family:'Bodoni Moda', serif; font-size:17px; line-height:1.55; color:rgba(236,231,222,0.78);">Técnica especializada e materiais de qualidade em cada procedimento. Sem atalhos, só resultado.</p>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Rodapé" hint-size="100%,300px"></dc-import>
+
+</div>
+</x-dc>
+</body>
+</html>
