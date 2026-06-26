@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600&family=Noto+Sans:wght@400;500&family=EB+Garamond:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *{ box-sizing:border-box; }
+    ::selection{ background:rgba(162,132,94,0.3); }
+  </style>
+  <script src="./revita-fx.js"></script>
+</helmet>
+<div data-screen-label="Tratamentos" style="width:1440px; margin:0 auto; background:rgb(236,231,222); font-family:'Bodoni Moda', Georgia, serif; color:rgb(43,35,22); overflow:hidden;">
+
+  <dc-import name="Cabeçalho" active="tratamentos" over-hero="{{ true }}" hint-size="100%,90px"></dc-import>
+
+  <!-- HERO -->
+  <section style="position:relative; height:520px; overflow:hidden; background:rgb(43,35,22);">
+    <div data-parallax="0.2" style="position:absolute; inset:0; background-image:repeating-linear-gradient(125deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 16px); transform:scale(1.15);"></div>
+    <div style="position:absolute; inset:0; background:rgba(26,18,16,0.35);"></div>
+    <div style="position:relative; height:100%; display:flex; flex-direction:column; justify-content:center; padding:0 72px;">
+      <h1 data-reveal="fade-left" style="margin:0; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:72px; line-height:1; color:rgb(255,255,255);">Tratamentos</h1>
+      <p data-reveal="fade-left" data-reveal-delay="160" style="margin:24px 0 0; max-width:600px; font-family:'Bodoni Moda', serif; font-size:24px; line-height:1.35; color:rgba(255,255,255,0.9);">Soluções personalizadas para cada sorriso.</p>
+    </div>
+  </section>
+
+  <!-- SPLIT 1 — Invisalign (img left) -->
+  <section style="display:grid; grid-template-columns:1fr 1fr; min-height:640px; background:rgb(236,231,222);">
+    <div data-reveal="fade-right" style="position:relative; background:rgb(43,35,22); overflow:hidden; min-height:520px;">
+      <div style="position:absolute; inset:0; background-image:repeating-linear-gradient(48deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 17px);"></div>
+      <div style="position:absolute; left:40px; bottom:28px; font-family:'Noto Sans', sans-serif; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(236,231,222,0.42);">foto — alinhador invisalign</div>
+    </div>
+    <div data-reveal="fade-left" data-reveal-delay="120" style="display:flex; flex-direction:column; justify-content:center; padding:80px 80px;">
+      <span style="font-family:'Bodoni Moda', serif; font-size:14px; letter-spacing:0.24em; text-transform:uppercase; color:rgb(122,108,94);">Ortodontia Estética</span>
+      <h2 style="margin:18px 0 0; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:44px; line-height:1.1; color:rgb(43,35,22);">Alinhador Invisalign</h2>
+      <ul style="list-style:none; margin:34px 0 0; padding:0; display:flex; flex-direction:column; gap:18px;">
+        <li style="display:flex; gap:16px; align-items:flex-start; font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.45; color:rgb(43,35,22);"><span style="color:rgb(162,132,94); font-size:13px; transform:translateY(4px);">✦</span>Alinhadores 100% transparentes e discretos.</li>
+        <li style="display:flex; gap:16px; align-items:flex-start; font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.45; color:rgb(43,35,22);"><span style="color:rgb(162,132,94); font-size:13px; transform:translateY(4px);">✦</span>Removíveis — sem restrição alimentar.</li>
+        <li style="display:flex; gap:16px; align-items:flex-start; font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.45; color:rgb(43,35,22);"><span style="color:rgb(162,132,94); font-size:13px; transform:translateY(4px);">✦</span>Resultados previsíveis com planejamento digital.</li>
+        <li style="display:flex; gap:16px; align-items:flex-start; font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.45; color:rgb(43,35,22);"><span style="color:rgb(162,132,94); font-size:13px; transform:translateY(4px);">✦</span>Conforto superior ao aparelho convencional.</li>
+      </ul>
+      <div style="margin-top:40px;">
+        <dc-import name="Botão" variant="primary" label="Agendar Consulta" href="Consulta-Online.dc.html" hint-size="220px,52px"></dc-import>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPLIT 2 — Implante (img right) -->
+  <section style="display:grid; grid-template-columns:1fr 1fr; min-height:640px; background:rgb(228,221,211);">
+    <div data-reveal="fade-right" style="display:flex; flex-direction:column; justify-content:center; padding:80px 80px;">
+      <span style="font-family:'Bodoni Moda', serif; font-size:14px; letter-spacing:0.24em; text-transform:uppercase; color:rgb(122,108,94);">Reabilitação Oral</span>
+      <h2 style="margin:18px 0 0; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:44px; line-height:1.1; color:rgb(43,35,22);">Implante Dentário</h2>
+      <ul style="list-style:none; margin:34px 0 0; padding:0; display:flex; flex-direction:column; gap:18px;">
+        <li style="display:flex; gap:16px; align-items:flex-start; font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.45; color:rgb(43,35,22);"><span style="color:rgb(162,132,94); font-size:13px; transform:translateY(4px);">✦</span>Solução permanente e de aparência natural.</li>
+        <li style="display:flex; gap:16px; align-items:flex-start; font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.45; color:rgb(43,35,22);"><span style="color:rgb(162,132,94); font-size:13px; transform:translateY(4px);">✦</span>Preserva a estrutura dos dentes adjacentes.</li>
+        <li style="display:flex; gap:16px; align-items:flex-start; font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.45; color:rgb(43,35,22);"><span style="color:rgb(162,132,94); font-size:13px; transform:translateY(4px);">✦</span>Estética idêntica aos dentes naturais.</li>
+        <li style="display:flex; gap:16px; align-items:flex-start; font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.45; color:rgb(43,35,22);"><span style="color:rgb(162,132,94); font-size:13px; transform:translateY(4px);">✦</span>Alta taxa de sucesso com tecnologia atual.</li>
+      </ul>
+      <div style="margin-top:40px;">
+        <dc-import name="Botão" variant="primary" label="Agendar Consulta" href="Consulta-Online.dc.html" hint-size="220px,52px"></dc-import>
+      </div>
+    </div>
+    <div data-reveal="fade-left" data-reveal-delay="120" style="position:relative; background:rgb(43,35,22); overflow:hidden; min-height:520px;">
+      <div style="position:absolute; inset:0; background-image:repeating-linear-gradient(48deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 17px);"></div>
+      <div style="position:absolute; left:40px; bottom:28px; font-family:'Noto Sans', sans-serif; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(236,231,222,0.42);">foto — implante dentário</div>
+    </div>
+  </section>
+
+  <!-- SPLIT 3 — Ortodontia Infantil (img left) -->
+  <section style="display:grid; grid-template-columns:1fr 1fr; min-height:640px; background:rgb(236,231,222);">
+    <div data-reveal="fade-right" style="position:relative; background:rgb(43,35,22); overflow:hidden; min-height:520px;">
+      <div style="position:absolute; inset:0; background-image:repeating-linear-gradient(48deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 17px);"></div>
+      <div style="position:absolute; left:40px; bottom:28px; font-family:'Noto Sans', sans-serif; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(236,231,222,0.42);">foto — ortodontia infantil</div>
+    </div>
+    <div data-reveal="fade-left" data-reveal-delay="120" style="display:flex; flex-direction:column; justify-content:center; padding:80px 80px;">
+      <span style="font-family:'Bodoni Moda', serif; font-size:14px; letter-spacing:0.24em; text-transform:uppercase; color:rgb(122,108,94);">Ortodontia Preventiva</span>
+      <h2 style="margin:18px 0 0; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:44px; line-height:1.1; color:rgb(43,35,22);">Ortodontia Infantil</h2>
+      <ul style="list-style:none; margin:34px 0 0; padding:0; display:flex; flex-direction:column; gap:18px;">
+        <li style="display:flex; gap:16px; align-items:flex-start; font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.45; color:rgb(43,35,22);"><span style="color:rgb(162,132,94); font-size:13px; transform:translateY(4px);">✦</span>Acompanhamento do desenvolvimento do sorriso.</li>
+        <li style="display:flex; gap:16px; align-items:flex-start; font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.45; color:rgb(43,35,22);"><span style="color:rgb(162,132,94); font-size:13px; transform:translateY(4px);">✦</span>Intervenção no momento certo do crescimento.</li>
+        <li style="display:flex; gap:16px; align-items:flex-start; font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.45; color:rgb(43,35,22);"><span style="color:rgb(162,132,94); font-size:13px; transform:translateY(4px);">✦</span>Prevenção de problemas ortodônticos futuros.</li>
+        <li style="display:flex; gap:16px; align-items:flex-start; font-family:'Bodoni Moda', serif; font-size:18px; line-height:1.45; color:rgb(43,35,22);"><span style="color:rgb(162,132,94); font-size:13px; transform:translateY(4px);">✦</span>Ambiente acolhedor e lúdico para crianças.</li>
+      </ul>
+      <div style="margin-top:40px;">
+        <dc-import name="Botão" variant="primary" label="Agendar Consulta" href="Consulta-Online.dc.html" hint-size="220px,52px"></dc-import>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="position:relative; background:rgb(30,23,18); overflow:hidden; padding:96px 40px; text-align:center;">
+    <div style="position:absolute; inset:0; background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 15px);"></div>
+    <div data-reveal="fade-up" style="position:relative; display:flex; flex-direction:column; align-items:center; gap:22px;">
+      <h2 style="margin:0; max-width:760px; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:48px; line-height:1.1; color:rgb(250,250,248);">Não encontrou o que procura?</h2>
+      <p style="margin:0; max-width:560px; font-family:'Bodoni Moda', serif; font-size:20px; line-height:1.5; color:rgba(236,231,222,0.82);">Fale com a Dra. Sarah e descubra o tratamento ideal para o seu caso.</p>
+      <div style="margin-top:14px;">
+        <dc-import name="Botão" variant="outlineLight" size="lg" label="Agende sua consulta" href="Consulta-Online.dc.html" hint-size="240px,58px"></dc-import>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Rodapé" hint-size="100%,300px"></dc-import>
+
+</div>
+</x-dc>
+</body>
+</html>
