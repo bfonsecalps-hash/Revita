@@ -1,0 +1,32 @@
+/* Generated from Figma Variables. First mode = :root default.
+   FLOAT tokens are unitless — multiply by 1px in calc() where a length is needed. */
+
+:root {
+  --background-dark: rgb(30,23,18); /* @kind color */
+  --background-primary: rgb(236,231,222); /* @kind color */
+  --background-secondary: rgb(228,221,211); /* @kind color */
+  --card-v2: rgb(38,22,6); /* @kind color */
+  --colors-brown: rgb(162,132,94); /* @kind color */
+  --gray-900: rgb(30,30,30); /* @kind color */
+  --icon-default-default: var(--gray-900); /* @kind color */
+  --icon-neutral-on-neutral: var(--slate-100); /* @kind color */
+  --slate-1000: rgb(36,36,36); /* @kind color */
+  --slate-100: rgb(243,243,243); /* @kind color */
+  --text-primary: rgb(43,35,22); /* @kind color */
+  --text-text-secondary: rgb(122,108,94); /* @kind color */
+  --text-text-text-inverse: rgb(250,250,248); /* @kind color */
+  --white-1000: rgb(255,255,255); /* @kind color */
+}
+
+:root[data-theme="dark"], .dark {
+  --colors-brown: rgb(172,142,104); /* @kind color */
+  --colors-brown: rgb(172,142,104); /* @kind color */
+  --colors-brown: rgb(181,148,105); /* @kind color */
+  --colors-brown: rgb(181,148,105); /* @kind color */
+  --icon-default-default: var(--white-1000); /* @kind color */
+  --icon-neutral-on-neutral: var(--slate-1000); /* @kind color */
+}
+
+:root[data-theme="light"], .light {
+  --colors-brown: rgb(127,101,69); /* @kind color */
+}
