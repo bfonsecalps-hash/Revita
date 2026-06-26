@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600&family=Noto+Sans:wght@400;500&family=EB+Garamond:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *{ box-sizing:border-box; }
+    ::selection{ background:rgba(162,132,94,0.3); }
+    .revita-input{ width:100%; height:52px; padding:0 18px; background:rgb(236,231,222); border:1px solid rgba(43,35,22,0.25); border-radius:8px; font-family:'Bodoni Moda', serif; font-size:16px; color:rgb(43,35,22); outline:none; transition:border-color .2s ease; }
+    .revita-input:focus{ border-color:rgb(30,23,18); box-shadow:0 0 0 4px rgba(162,132,94,0.16); }
+    .revita-input::placeholder{ color:rgba(43,35,22,0.45); }
+  </style>
+  <script src="./revita-fx.js"></script>
+</helmet>
+<div data-screen-label="Consulta Online" style="width:1440px; margin:0 auto; background:rgb(236,231,222); font-family:'Bodoni Moda', Georgia, serif; color:rgb(43,35,22); overflow:hidden;">
+
+  <dc-import name="Cabeçalho" active="consulta" over-hero="{{ true }}" hint-size="100%,90px"></dc-import>
+
+  <!-- HERO -->
+  <section style="position:relative; height:420px; overflow:hidden; background:rgb(43,35,22);">
+    <div data-parallax="0.2" style="position:absolute; inset:0; background-image:repeating-linear-gradient(125deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 16px); transform:scale(1.15);"></div>
+    <div style="position:absolute; inset:0; background:rgba(43,35,22,0.2);"></div>
+    <div style="position:relative; height:100%; display:flex; flex-direction:column; justify-content:center; padding:0 72px;">
+      <h1 data-reveal="fade-left" style="margin:0; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:64px; line-height:1; color:rgb(255,255,255);">Consulta Online</h1>
+      <p data-reveal="fade-left" data-reveal-delay="160" style="margin:22px 0 0; max-width:600px; font-family:'Bodoni Moda', serif; font-size:24px; line-height:1.35; color:rgba(255,255,255,0.9);">Avaliação, quiz e agendamento. Tudo em um só lugar.</p>
+    </div>
+  </section>
+
+  <!-- QUIZ / AGENDA / DONE -->
+  <section style="background:rgb(236,231,222); padding:80px 72px 100px; min-height:620px;">
+    <div style="max-width:820px; margin:0 auto;">
+
+      <!-- QUIZ -->
+      <sc-if value="{{ isQuiz }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+            <span style="font-family:'Bodoni Moda', serif; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:rgb(122,108,94);">{{ stepLabel }}</span>
+            <span style="font-family:'Noto Sans', sans-serif; font-size:13px; color:rgb(122,108,94);">{{ pctLabel }}</span>
+          </div>
+          <div style="width:100%; height:4px; background:rgba(43,35,22,0.14); border-radius:2px; overflow:hidden; margin-bottom:44px;">
+            <div style="height:100%; width:{{ progressPct }}; background:rgb(43,35,22); border-radius:2px; transition:width .35s ease;"></div>
+          </div>
+          <p data-quiz-panel style="margin:0 0 6px; font-family:'EB Garamond', serif; font-size:18px; color:rgb(122,108,94);">{{ qSubject }}</p>
+          <div ref="{{ panelRef }}">
+            <h2 style="margin:0 0 36px; max-width:640px; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:36px; line-height:1.18; color:rgb(43,35,22);">{{ qText }}</h2>
+            <div style="display:flex; flex-direction:column; gap:14px;">
+              <sc-for list="{{ options }}" as="opt" hint-placeholder-count="4">
+                <button type="button" onClick="{{ opt.onClick }}" style="{{ opt.style }}" style-hover="{{ opt.hover }}">
+                  <span style="{{ opt.dotStyle }}"></span>
+                  <span style="{{ opt.labelStyle }}">{{ opt.label }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:44px;">
+            <button type="button" onClick="{{ onBack }}" style="{{ backStyle }}">← Voltar</button>
+            <button type="button" onClick="{{ onContinue }}" style="{{ continueStyle }}">{{ continueLabel }}</button>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- AGENDA -->
+      <sc-if value="{{ isAgenda }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <span style="font-family:'Bodoni Moda', serif; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:rgb(122,108,94);">Quase lá</span>
+          <h2 style="margin:14px 0 8px; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:38px; line-height:1.12; color:rgb(43,35,22);">Escolha sua data e horário</h2>
+          <p style="margin:0 0 40px; max-width:560px; font-family:'Bodoni Moda', serif; font-size:17px; line-height:1.55; color:rgb(122,108,94);">Consultas online realizadas por videochamada. Você receberá o link por e-mail após a confirmação.</p>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;">
+            <div style="display:flex; flex-direction:column; gap:20px;">
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <label style="font-family:'Bodoni Moda', serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgb(122,108,94);">Nome completo</label>
+                <input class="revita-input" type="text" placeholder="Seu nome" onInput="{{ onName }}">
+              </div>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <label style="font-family:'Bodoni Moda', serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgb(122,108,94);">E-mail</label>
+                <input class="revita-input" type="email" placeholder="seu@email.com">
+              </div>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <label style="font-family:'Bodoni Moda', serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgb(122,108,94);">Telefone / WhatsApp</label>
+                <input class="revita-input" type="tel" placeholder="(61) 00000-0000">
+              </div>
+            </div>
+
+            <div style="background:rgb(228,221,211); border:1px solid rgba(43,35,22,0.12); border-radius:12px; padding:26px 26px 30px;">
+              <div style="font-family:'Bodoni Moda', serif; font-weight:500; font-size:16px; color:rgb(43,35,22); margin-bottom:18px;">Junho 2026</div>
+              <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-bottom:8px;">
+                <sc-for list="{{ weekDays }}" as="w" hint-placeholder-count="7">
+                  <div style="text-align:center; font-family:'Noto Sans', sans-serif; font-size:11px; color:rgb(122,108,94);">{{ w }}</div>
+                </sc-for>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:6px;">
+                <sc-for list="{{ days }}" as="d" hint-placeholder-count="35">
+                  <button type="button" onClick="{{ d.onClick }}" style="{{ d.style }}" style-hover="{{ d.hover }}">{{ d.label }}</button>
+                </sc-for>
+              </div>
+              <div style="font-family:'Bodoni Moda', serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgb(122,108,94); margin:22px 0 12px;">Horário</div>
+              <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px;">
+                <sc-for list="{{ times }}" as="t" hint-placeholder-count="8">
+                  <button type="button" onClick="{{ t.onClick }}" style="{{ t.style }}" style-hover="{{ t.hover }}">{{ t.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:44px;">
+            <button type="button" onClick="{{ onBack }}" style="{{ backStyle }}">← Voltar</button>
+            <button type="button" onClick="{{ onConfirm }}" style="{{ confirmStyle }}">Confirmar agendamento</button>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- DONE -->
+      <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center; padding:40px 0 20px;">
+          <div style="width:84px; height:84px; margin:0 auto 30px; border-radius:50%; border:1px solid rgb(162,132,94); display:flex; align-items:center; justify-content:center; font-size:30px; color:rgb(162,132,94);">✦</div>
+          <h2 style="margin:0; font-family:'Noto Sans', sans-serif; font-weight:400; font-size:42px; line-height:1.1; color:rgb(43,35,22);">Consulta agendada!</h2>
+          <p style="margin:22px auto 0; max-width:520px; font-family:'Bodoni Moda', serif; font-size:19px; line-height:1.55; color:rgb(43,35,22); opacity:0.85;">{{ doneText }}</p>
+          <p style="margin:14px auto 0; max-width:520px; font-family:'Bodoni Moda', serif; font-size:16px; line-height:1.55; color:rgb(122,108,94);">Você receberá o link da videochamada por e-mail. Até breve!</p>
+          <div style="margin-top:36px; display:flex; justify-content:center;">
+            <dc-import name="Botão" variant="outlineDark" label="Voltar ao início" href="Home.dc.html" hint-size="200px,52px"></dc-import>
+          </div>
+        </div>
+      </sc-if>
+
+    </div>
+  </section>
+
+  <dc-import name="Rodapé" hint-size="100%,300px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { step: 0, answers: {}, date: null, time: null, nome: "", phase: "quiz" };
+
+  questions = [
+    { subject: "Pergunta 1 de 5", text: "Qual é o principal motivo da sua consulta?", options: [
+      "Estou com dor, sensibilidade ou desconforto",
+      "Tenho interesse em ortodontia (aparelho ou alinhador)",
+      "Quero repor um dente perdido (implante)",
+      "Quero melhorar a estética do meu sorriso",
+    ]},
+    { subject: "Pergunta 2 de 5", text: "Há quanto tempo foi sua última consulta?", options: [
+      "Menos de 6 meses", "De 6 meses a 1 ano", "De 1 a 3 anos", "Mais de 3 anos",
+    ]},
+    { subject: "Pergunta 3 de 5", text: "Sente algum desses sintomas hoje?", options: [
+      "Sangramento na gengiva", "Sensibilidade ao frio ou calor", "Dor ao mastigar", "Nenhum no momento",
+    ]},
+    { subject: "Pergunta 4 de 5", text: "Já fez algum tratamento ortodôntico antes?", options: [
+      "Sim, aparelho fixo", "Sim, alinhador", "Não, seria o primeiro", "Não tenho certeza",
+    ]},
+    { subject: "Pergunta 5 de 5", text: "Como prefere ser atendida(o)?", options: [
+      "Consulta online (videochamada)", "Consulta presencial na clínica", "Tanto faz — o que for mais rápido",
+    ]},
+  ];
+
+  componentDidUpdate(pp, ps) {
+    if (this._panel && (ps.step !== this.state.step || ps.phase !== this.state.phase)) {
+      var dir = this._dir || 1;
+      try {
+        this._panel.animate(
+          [{ opacity: 0, transform: "translateX(" + dir * 36 + "px)" }, { opacity: 1, transform: "translateX(0)" }],
+          { duration: 380, easing: "cubic-bezier(.22,.61,.36,1)" }
+        );
+      } catch (e) {}
+    }
+  }
+
+  renderVals() {
+    const espresso = "rgb(30,23,18)", cocoa = "rgb(43,35,22)", cream = "rgb(236,231,222)", offwhite = "rgb(250,250,248)";
+    const phase = this.state.phase;
+    const step = this.state.step;
+
+    // --- options for current question ---
+    const q = this.questions[step] || this.questions[0];
+    const selectedIdx = this.state.answers[step];
+    const options = q.options.map((label, i) => {
+      const on = selectedIdx === i;
+      return {
+        label,
+        onClick: (e) => {
+          if (e && e.currentTarget && e.currentTarget.animate) {
+            try { e.currentTarget.animate([{ transform: "scale(0.96)" }, { transform: "scale(1)" }], { duration: 240, easing: "cubic-bezier(.34,1.56,.64,1)" }); } catch (err) {}
+          }
+          this.setState((s) => ({ answers: { ...s.answers, [step]: i } }));
+        },
+        style: {
+          display: "flex", alignItems: "center", gap: "16px", width: "100%", textAlign: "left",
+          padding: "20px 24px", borderRadius: "10px", cursor: "pointer",
+          background: on ? espresso : cream,
+          border: on ? "1px solid " + espresso : "1px solid rgba(43,35,22,0.2)",
+          transition: "background-color .25s ease, border-color .25s ease, transform .25s cubic-bezier(.22,.61,.36,1)",
+        },
+        hover: on ? {} : { borderColor: "rgb(162,132,94)", background: "rgba(43,35,22,0.04)", transform: "scale(1.01)" },
+        dotStyle: {
+          flexShrink: 0, width: "18px", height: "18px", borderRadius: "50%",
+          border: on ? "5px solid " + cream : "1.5px solid rgba(43,35,22,0.4)",
+          background: "transparent", boxSizing: "border-box",
+        },
+        labelStyle: {
+          fontFamily: "'Bodoni Moda', serif", fontSize: "18px", lineHeight: 1.35,
+          color: on ? offwhite : cocoa,
+        },
+      };
+    });
+
+    const answered = selectedIdx !== undefined;
+    const continueLabel = step === this.questions.length - 1 ? "Ir para o agendamento" : "Continuar";
+
+    const pillBase = {
+      display: "inline-flex", alignItems: "center", justifyContent: "center", height: "52px",
+      padding: "0 32px", borderRadius: "15px", fontFamily: "'Bodoni Moda', serif", fontWeight: 500,
+      fontSize: "18px", cursor: "pointer", border: "1px solid transparent", transition: "all .2s ease",
+    };
+    const continueStyle = answered
+      ? { ...pillBase, background: espresso, color: offwhite }
+      : { ...pillBase, background: "rgba(43,35,22,0.18)", color: "rgba(43,35,22,0.4)", cursor: "not-allowed" };
+    const backStyle = {
+      background: "transparent", border: "none", cursor: "pointer",
+      fontFamily: "'Bodoni Moda', serif", fontSize: "17px", color: "rgb(122,108,94)",
+      visibility: (phase === "quiz" && step === 0) ? "hidden" : "visible",
+    };
+
+    const onContinue = () => {
+      if (!answered) return;
+      this._dir = 1;
+      if (step === this.questions.length - 1) this.setState({ phase: "agenda" });
+      else this.setState({ step: step + 1 });
+    };
+    const onBack = () => {
+      this._dir = -1;
+      if (phase === "agenda") this.setState({ phase: "quiz" });
+      else if (step > 0) this.setState({ step: step - 1 });
+    };
+
+    // --- agenda: calendar (June 2026, starts Monday) ---
+    const weekDays = ["D", "S", "T", "Q", "Q", "S", "S"];
+    const lead = 1; // June 1 2026 = Monday -> 1 leading blank (Sunday col)
+    const dayCells = [];
+    for (let i = 0; i < lead; i++) dayCells.push({ label: "", blank: true });
+    for (let d = 1; d <= 30; d++) dayCells.push({ label: String(d), day: d });
+    const dayBtnBase = {
+      aspectRatio: "1", border: "none", borderRadius: "8px", cursor: "pointer",
+      fontFamily: "'Noto Sans', sans-serif", fontSize: "14px", display: "flex",
+      alignItems: "center", justifyContent: "center",
+      transition: "background-color .2s ease, transform .2s cubic-bezier(.22,.61,.36,1), border-radius .2s ease",
+    };
+    const days = dayCells.map((c) => {
+      if (c.blank) return { label: "", style: { ...dayBtnBase, background: "transparent", cursor: "default", transition: "none" }, hover: {}, onClick: () => {} };
+      const on = this.state.date === c.day;
+      return {
+        label: c.label,
+        onClick: () => this.setState({ date: c.day }),
+        style: {
+          ...dayBtnBase,
+          background: on ? espresso : "transparent",
+          color: on ? offwhite : cocoa,
+          borderRadius: on ? "50%" : "8px",
+        },
+        hover: on ? {} : { background: "rgba(162,132,94,0.18)", borderRadius: "50%", transform: "scale(1.1)" },
+      };
+    });
+
+    const timeList = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00"];
+    const timeBtnBase = {
+      height: "40px", border: "1px solid rgba(43,35,22,0.25)", borderRadius: "8px", cursor: "pointer",
+      fontFamily: "'Noto Sans', sans-serif", fontSize: "14px", background: "transparent", color: cocoa,
+      transition: "background-color .2s ease, border-color .2s ease, transform .2s cubic-bezier(.22,.61,.36,1)",
+    };
+    const times = timeList.map((t) => {
+      const on = this.state.time === t;
+      return {
+        label: t,
+        onClick: () => this.setState({ time: t }),
+        style: { ...timeBtnBase, background: on ? espresso : "transparent", color: on ? offwhite : cocoa, borderColor: on ? espresso : "rgba(43,35,22,0.25)" },
+        hover: on ? {} : { borderColor: "rgb(162,132,94)", background: "rgba(162,132,94,0.1)", transform: "scale(1.04)" },
+      };
+    });
+
+    const canConfirm = this.state.date && this.state.time;
+    const confirmStyle = canConfirm
+      ? { ...pillBase, background: espresso, color: offwhite }
+      : { ...pillBase, background: "rgba(43,35,22,0.18)", color: "rgba(43,35,22,0.4)", cursor: "not-allowed" };
+    const onConfirm = () => { if (canConfirm) this.setState({ phase: "done" }); };
+    const onName = (e) => { this.state.nome = e.target.value; };
+
+    const months = "junho";
+    const nm = this.state.nome ? this.state.nome.split(" ")[0] + ", sua" : "Sua";
+    const doneText = `${nm} consulta online está marcada para ${this.state.date} de junho de 2026, às ${this.state.time}.`;
+
+    return {
+      isQuiz: phase === "quiz", isAgenda: phase === "agenda", isDone: phase === "done",
+      stepLabel: q.subject, qSubject: "Conte um pouco sobre você", qText: q.text,
+      pctLabel: `${step + 1} / 5`, progressPct: `${((step + 1) / 5) * 100}%`,
+      options, continueLabel, continueStyle, backStyle, onContinue, onBack,
+      weekDays, days, times, confirmStyle, onConfirm, onName, doneText,
+      panelRef: (el) => { this._panel = el; },
+    };
+  }
+}
+</script>
+</body>
+</html>
